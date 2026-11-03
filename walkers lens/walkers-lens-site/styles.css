@@ -1,0 +1,200 @@
+/* ========== TOKENS (dark charcoal + copper, as in the reference recording) ========== */
+:root{--bg:#1c1714;--bg2:#241e1a;--line:#382f29;--text:#e9e1d6;--mute:#a69c91;--dim:#7d746a;--copper:#cb7a4e;--on-copper:#1c1714;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font:300 16px/1.75 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;margin:0 0 14px;line-height:1.1}
+h2{font-size:clamp(34px,8.5vw,52px);font-style:italic}
+h2 em,h1 em{font-style:italic}
+h3{font-size:clamp(30px,7vw,38px);font-style:italic}
+h4{font:400 11px "DM Sans",sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin:22px 0 4px}
+p{margin:0 0 16px;color:var(--mute)}
+:focus-visible{outline:2px solid var(--copper);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* ========== SHARED ========== */
+.rule{display:block;width:46px;height:1px;background:var(--copper);margin:0 0 26px}
+.tier{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin:0 0 20px}
+.tier::after{content:" ✦";color:var(--copper);letter-spacing:0}
+.sec{padding:72px 7vw 28px;max-width:1100px;margin:0 auto}
+.btn{display:block;width:100%;padding:17px 12px;border:1px solid #6b6158;background:transparent;color:var(--text);font:400 11.5px "DM Sans",sans-serif;letter-spacing:.24em;text-transform:uppercase;text-align:center;text-decoration:none;cursor:pointer;transition:border-color .2s,background .2s}
+.btn:hover{border-color:var(--copper)}
+.btn.fill{background:var(--copper);border-color:var(--copper);color:var(--on-copper);font-weight:500}
+.btn.fill:hover{background:#d98b60}
+.lead{font-size:18px;color:var(--mute);max-width:44ch}
+
+/* ========== TOP BAR ========== */
+.top{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:14px 7vw;transition:background .3s}
+body.scrolled .top{background:rgba(28,23,20,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.logo{white-space:nowrap;font:italic 400 26px "Cormorant Garamond",serif;text-decoration:none;color:var(--text);line-height:1}
+.top-cta{font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;border:1px solid var(--copper);padding:9px 18px}
+
+/* ========== COVER ========== */
+.hero{position:relative;height:100vh;height:100svh;min-height:540px;overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,14,12,.55) 0%,rgba(18,14,12,0) 24%,rgba(18,14,12,.5) 50%,rgba(18,14,12,.95) 84%)}
+.hero-in{position:absolute;z-index:2;left:7vw;right:7vw;bottom:15%;max-width:640px}
+.hero .tier{color:var(--text);opacity:.85}
+.hero h1{font-size:clamp(54px,15vw,120px);margin-bottom:12px;text-shadow:0 2px 24px rgba(0,0,0,.5)}
+.hero-p{color:var(--text);font-size:17px;max-width:34ch;margin:0}
+.scroll{position:absolute;z-index:2;left:50%;bottom:22px;transform:translateX(-50%);width:72px;height:72px;display:grid;place-items:end center;padding-bottom:8px;background:rgba(28,23,20,.55);border:1px solid #ffffff40;font-size:10px;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;color:var(--text)}
+
+/* cover: photo is always the full background; the title sits on top of it at every size */
+@media(min-width:900px){
+  .hero::after{background:linear-gradient(90deg,rgba(18,14,12,.82) 0%,rgba(18,14,12,.4) 36%,rgba(18,14,12,0) 62%),linear-gradient(180deg,rgba(18,14,12,.5) 0%,rgba(18,14,12,0) 22%,rgba(18,14,12,0) 62%,rgba(18,14,12,.85) 100%)}
+  .hero-in{max-width:min(520px,44vw);bottom:12%}
+  .hero h1{font-size:clamp(54px,6.6vw,104px)}
+}
+@media(max-height:520px){
+  .hero{min-height:340px}
+  .hero-in{bottom:13%}
+  .hero .tier{display:none}
+  .hero h1{font-size:clamp(40px,9vw,64px);margin-bottom:6px}
+  .hero-p{display:none}
+  .scroll{display:none}
+}
+
+/* ========== PACKAGES ========== */
+.group{border-top:1px solid var(--line)}
+.pkgs{display:grid;grid-template-columns:1fr}
+.pkg{background:var(--bg2);border-top:1px solid var(--line)}
+.pimg{margin:0;overflow:hidden}
+.pimg img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s}
+.pbody{padding:44px 7vw 52px;display:flex;flex-direction:column}
+.crew{font-size:13px;letter-spacing:.06em;color:var(--dim);margin-bottom:22px}
+.prices{margin-bottom:6px}
+.price{font:300 clamp(40px,11vw,52px)/1.05 "Cormorant Garamond",serif;color:var(--text);margin:0 0 6px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.per{font:400 11px "DM Sans",sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--copper)}
+.checks{list-style:none;margin:0 0 24px;padding:0}
+.checks li{position:relative;padding-left:30px;margin:9px 0;color:var(--mute);font-size:15px;line-height:1.5}
+.checks li::before{content:"";position:absolute;left:5px;top:.3em;width:5px;height:10px;border:solid var(--copper);border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
+.pkg .btn{margin-top:auto}
+.checks{flex:1}
+.bleed{margin:0;border-top:1px solid var(--line)}
+.bleed img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%}
+
+/* collection headers, photo strips, jump chips */
+.coll-head{padding-bottom:26px}
+.from{font:400 11px "DM Sans",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--copper);margin:6px 0 20px}
+.sub{padding-top:56px;padding-bottom:26px;border-top:1px solid var(--line);max-width:none}
+.sub>*{max-width:1100px}
+.sub h3{font-size:clamp(28px,6.5vw,38px)}
+.mosaic{display:grid;gap:3px;border-top:1px solid var(--line)}
+.mosaic.m2{grid-template-columns:1fr 1fr}.mosaic.m3{grid-template-columns:repeat(3,1fr)}
+.mosaic figure{margin:0;overflow:hidden}
+.mosaic img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 22%}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
+.chips a{padding:10px 16px;border:1px solid var(--line);border-radius:999px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--text);transition:border-color .2s,color .2s}
+.chips a:hover{border-color:var(--copper);color:var(--copper)}
+
+/* price list extras */
+.was{font-size:15px;color:var(--dim);text-decoration:line-through;margin:0 0 2px}
+.blurb{font:italic 300 21px/1.4 "Cormorant Garamond",serif;color:var(--mute);margin:0 0 18px}
+.group .sec .note{font-size:14px;margin:0 0 20px}
+.btn.inline{display:inline-block;width:auto;padding:14px 24px}
+
+/* add-ons table */
+.addon-group{margin-top:34px}
+.addon{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--text)}
+.addon .amt{color:var(--copper);white-space:nowrap}
+
+/* sessions */
+.session{border-top:1px solid var(--line)}
+.session .sec{padding-bottom:60px}
+.ask{font:italic 300 26px "Cormorant Garamond",serif;color:var(--mute)}
+.session .btn{margin-top:14px}
+
+/* about */
+.why{margin-top:40px;display:grid;gap:30px}
+.why h3{font-size:28px}
+.why p{margin:0}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:30px}
+.ph{padding:0;border:0;aspect-ratio:3/4;overflow:hidden;background:var(--bg2);cursor:pointer}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.ph:hover img{transform:scale(1.04)}
+.lightbox{position:fixed;inset:0;z-index:80;background:#000e;display:flex;align-items:center;justify-content:center;padding:18px;cursor:zoom-out}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:100%;max-height:100%}
+
+/* terms */
+details{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:20px}
+summary{padding:18px 0;cursor:pointer;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--text)}
+details ol{margin:0 0 20px;padding-left:22px;color:var(--mute);font-size:15px}
+details li{margin:12px 0;padding-left:6px}
+
+/* form */
+.book{padding-bottom:90px}
+label{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin:24px 0 8px}
+input,select,textarea{display:block;width:100%;padding:15px 14px;background:#211b18;border:1px solid var(--line);color:var(--text);font:300 16px "DM Sans",sans-serif;border-radius:0}
+input:focus,select:focus,textarea:focus{border-color:var(--copper);outline:none}
+.checks-row{display:flex;gap:26px;flex-wrap:wrap}
+.checks-row label{display:flex;align-items:center;gap:9px;margin:0;font-size:15px;letter-spacing:0;text-transform:none;color:var(--text)}
+.checks-row input{width:18px;height:18px;margin:0;padding:0;accent-color:var(--copper)}
+.note{font-size:14px;margin:22px 0 0}
+.msg{min-height:26px;font-size:14px;margin:12px 0}.ok{color:#7fd6a0}.err{color:#ff9a8a}.msg a{color:var(--copper)}
+.book .btn{margin-top:6px}
+
+/* ========== FOOTER (compact, icons in a rounded dock on the right) ========== */
+.foot{background:var(--bg2);border-top:1px solid var(--line);padding:20px 7vw 14px}
+.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 16px;max-width:1100px;margin:0 auto}
+.foot .logo{font-size:22px}
+.dock{display:flex;gap:4px;padding:5px;margin-left:auto;border:1px solid var(--line);border-radius:999px;background:rgba(52,43,37,.55)}
+.dock a{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#2d2520;color:#cdbfb0;transition:background .2s,color .2s}
+.dock a:hover{background:var(--copper);color:var(--on-copper)}
+.dock svg,.fab svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.copy{margin:12px 0 0;text-align:center;font-size:12.5px;color:var(--dim)}
+.copy a{color:var(--mute)}
+.mail-line{color:var(--copper);word-break:break-all}
+
+/* footer: phone layout like the reference (follow along, icon + label links, logo and copyright) */
+.ic{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.foot-m{display:none}
+@media(max-width:899px){
+  .foot{background:var(--bg);padding:0}
+  .foot-d{display:none}
+  .foot-m{display:block;padding:60px 6vw 130px}
+  .follow{font-size:15px;letter-spacing:.38em;text-transform:uppercase;color:var(--mute);text-align:center;margin:0 0 30px}
+  .slinks{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 30px}
+  .slinks a{display:inline-flex;align-items:center;gap:12px;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);text-decoration:none}
+  .slinks .ic{width:24px;height:24px;flex:none}
+  .slinks a:hover{color:var(--copper)}
+  .foot-m .legal{display:flex;align-items:center;gap:20px;border-top:1px solid var(--line);margin:64px -6vw 34px;padding:50px 6vw 0}
+  .legal .lens{width:36px;height:36px;color:var(--text);flex:none}
+  .legal p{margin:0;font-size:16px;line-height:1.5;color:var(--mute)}
+  .slinks.small{justify-content:space-between;gap:20px 14px}
+  .slinks.small a{font-size:12.5px;letter-spacing:.16em;gap:9px}
+  .slinks.small .ic{width:20px;height:20px}
+}
+@media(min-width:900px){body.at-foot .fab{opacity:0!important;pointer-events:none!important}}
+
+/* ========== FLOATING BUTTONS + MENU ========== */
+.fab{position:fixed;right:16px;z-index:60;width:52px;height:52px;border:0;border-radius:50%;display:grid;place-items:center;cursor:pointer}
+.fab svg{width:22px;height:22px}
+.fab.menu{bottom:82px;background:rgba(62,54,48,.94);color:var(--text)}
+.fab.up{bottom:20px;background:var(--copper);color:var(--on-copper);opacity:0;pointer-events:none;transition:opacity .25s}
+.fab.up.show{opacity:1;pointer-events:auto}
+.menu[hidden]{display:none}
+nav.menu{position:fixed;z-index:55;inset:0;background:rgba(28,23,20,.97);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 9vw}
+nav.menu a{font:italic 400 clamp(30px,8vw,44px)/1.3 "Cormorant Garamond",serif;text-decoration:none;color:var(--text)}
+nav.menu a:last-child{color:var(--copper)}
+
+/* ========== DESKTOP ========== */
+@media(min-width:900px){
+  .pkgs{grid-template-columns:repeat(2,1fr);gap:26px;width:calc(100% - 14vw);max-width:1100px;margin:0 auto;padding:36px 0 44px}
+  .pkgs.three{grid-template-columns:repeat(3,1fr)}
+  .pkgs.three .price{font-size:40px}
+  .pkg{border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .3s,transform .3s}
+  .pkg:hover{border-color:#5b4a3f;transform:translateY(-3px)}
+  .pkg:hover .pimg img{transform:scale(1.04)}
+  .pbody{padding:32px 28px 36px;flex:1}
+  .sec{width:calc(100% - 14vw);padding-left:0;padding-right:0}
+  .bleed img{aspect-ratio:21/9;max-height:78vh}
+  .mosaic{width:calc(100% - 14vw);max-width:1100px;margin:0 auto}
+  .mosaic.m2 img{aspect-ratio:1/1}
+  .gallery{grid-template-columns:repeat(4,1fr)}
+  .why{grid-template-columns:repeat(3,1fr);gap:40px}
+  .book form{max-width:640px}
+}
