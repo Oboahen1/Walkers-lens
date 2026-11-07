@@ -155,18 +155,15 @@ input:focus,select:focus,textarea:focus{border-color:var(--copper);outline:none}
 @media(max-width:899px){
   .foot{background:var(--bg);padding:0}
   .foot-d{display:none}
-  .foot-m{display:block;padding:60px 6vw 130px}
+  .foot-m{display:block;padding:60px 6vw 120px}
   .follow{font-size:15px;letter-spacing:.38em;text-transform:uppercase;color:var(--mute);text-align:center;margin:0 0 30px}
   .slinks{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 30px}
   .slinks a{display:inline-flex;align-items:center;gap:12px;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);text-decoration:none}
   .slinks .ic{width:24px;height:24px;flex:none}
   .slinks a:hover{color:var(--copper)}
-  .foot-m .legal{display:flex;align-items:center;gap:20px;border-top:1px solid var(--line);margin:64px -6vw 34px;padding:50px 6vw 0}
+  .foot-m .legal{display:flex;align-items:center;gap:20px;border-top:1px solid var(--line);margin:64px -6vw 0;padding:50px 6vw 0}
   .legal .lens{width:36px;height:36px;color:var(--text);flex:none}
   .legal p{margin:0;font-size:16px;line-height:1.5;color:var(--mute)}
-  .slinks.small{justify-content:space-between;gap:20px 14px}
-  .slinks.small a{font-size:12.5px;letter-spacing:.16em;gap:9px}
-  .slinks.small .ic{width:20px;height:20px}
 }
 @media(min-width:900px){body.at-foot .fab{opacity:0!important;pointer-events:none!important}}
 
